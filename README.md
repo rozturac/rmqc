@@ -1,6 +1,6 @@
 # 🐇 RMQC (RabbitMQ Connector)
 
-[![GitHub license](https://img.shields.io/github/license/rozturac/rmqc.svg)](https://github.com/rozturac/rmqc/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/rozturac/rmqc.svg)](https://github.com/rozturac/rmqc/blob/main/LICENSE)
 
 RMQC provide to work with RabbitMQ without complexity. RMQC uses AMQP framework in background and does not reflect the complexity that comes with amqp to the developer.
 
