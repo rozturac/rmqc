@@ -105,7 +105,7 @@ rbt.Publish("rabbitmq-test-exchange", "1", event)
 rbt := NewRabbitMQ()
 consumer := consumers.NewSimpleConsumer()
 if err = rbt.BindConsumer(consumer); err != nil {
-panic(err)
+	panic(err)
 }
 rbt.Start()
 ```
