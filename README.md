@@ -46,7 +46,6 @@ func NewRabbitMQ() (*rmqc.RabbitMQ, error) {
 The Event must be implemented from the IEvent interface.
 
 ```go
-//Implemented by rmqc.IEvent 
 type SimpleEvent struct {
 	Message string
 }
