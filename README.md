@@ -101,7 +101,6 @@ rbt.Publish("rabbitmq-test-exchange", "1", event)
 ### Bind Consumers
 
 ```go
-// Event data structure
 rbt := NewRabbitMQ()
 consumer := consumers.NewSimpleConsumer()
 if err = rbt.BindConsumer(consumer); err != nil {
