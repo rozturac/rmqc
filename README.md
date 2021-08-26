@@ -92,14 +92,6 @@ func (s SimpleConsumer) Consume(context *rmqc.ConsumerContext) {
 }
 ```
 
-### Publish Event 
-
-```go
-rbt := NewRabbitMQ()
-event := events.NewSimpleEvent("Hello World!")
-rbt.Publish("rabbitmq-test-exchange", "1", event)
-```
-
 ### Bind Consumers
 
 ```go
@@ -109,6 +101,14 @@ if err = rbt.BindConsumer(consumer); err != nil {
 	panic(err)
 }
 rbt.Start()
+```
+
+### Publish Event 
+
+```go
+rbt := NewRabbitMQ()
+event := events.NewSimpleEvent("Hello World!")
+rbt.Publish("rabbitmq-test-exchange", "1", event)
 ```
 
 ### Sample Project
