@@ -5,7 +5,7 @@
 [![Release](https://img.shields.io/github/tag/rozturac/rmqc.svg?label=release&color=24B898&logo=github&style=for-the-badge)](https://github.com/rozturac/rmqc/releases/latest)
 [![Go Report Card](https://img.shields.io/badge/go%20report-A%2B-green?style=for-the-badge)](https://goreportcard.com/report/github.com/rozturac/rmqc)
 
-RMQC provide to work with RabbitMQ without complexity. RMQC uses AMQP framework in background and does not reflect the complexity that comes with amqp to the developer.
+RMQC provide to work with RabbitMQ without complexity. RMQC uses AMQP framework in background and does not reflect the complexity that comes with AMQP to the developer.
 
 ## Installation
 
