@@ -1,6 +1,9 @@
 # 🐇 RMQC (RabbitMQ Connector)
 
-[![GitHub license](https://img.shields.io/github/license/rozturac/rmqc.svg)](https://github.com/rozturac/rmqc/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/rozturac/rmqc.svg?color=24B898&style=for-the-badge&logo=go&logoColor=ffffff)](https://github.com/rozturac/rmqc/blob/main/LICENSE)
+[![Documentation](https://img.shields.io/badge/godoc-reference-blue.svg?color=24B898&style=for-the-badge&logo=go&logoColor=ffffff)](https://pkg.go.dev/github.com/rozturac/rmqc)
+[![Release](https://img.shields.io/github/tag/rozturac/rmqc.svg?label=release&color=24B898&logo=github&style=for-the-badge)](https://github.com/rozturac/rmqc/releases/latest)
+[![Go Report Card](https://img.shields.io/badge/go%20report-A%2B-green?style=for-the-badge)](https://goreportcard.com/report/github.com/rozturac/rmqc)
 
 RMQC provide to work with RabbitMQ without complexity. RMQC uses AMQP framework in background and does not reflect the complexity that comes with amqp to the developer.
 
