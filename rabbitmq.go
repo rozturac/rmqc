@@ -176,17 +176,16 @@ func (rbt RabbitMQ) PublishWithCorrelationId(exchangeName, routingKey, correlati
 }
 
 func (rbt *RabbitMQ) addConnectionCloseListener() {
-
 	receiver := make(chan *amqp.Error)
 	rbt.connection.NotifyClose(receiver)
-
 	err := <-receiver
 
 	if err != nil {
 		for i := 0; i < rbt.config.Reconnect.MaxAttempt; i++ {
 			if err := rbt.reconnect(); err == nil {
-				rbt.restart()
-				return
+				if err := rbt.restart(); err == nil {
+					return
+				}
 			}
 
 			time.Sleep(rbt.config.Reconnect.Interval)
