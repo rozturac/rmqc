@@ -117,6 +117,21 @@ func (rbt *RabbitMQ) Start() {
 	}
 }
 
+func (rbt *RabbitMQ) restart() error {
+	for _, consumer := range rbt.consumers {
+		if ch, err := rbt.channel(); err != nil {
+			return err
+		} else {
+			consumer.channel = ch
+		}
+		consumer.channel.Qos(consumer.config.Qos.PrefetchCount, 0, false)
+		for i := 0; i < consumer.config.Qos.ConsumerCount; i++ {
+			go consumer.Consume(i)
+		}
+	}
+	return nil
+}
+
 func (rbt RabbitMQ) Publish(exchangeName, routingKey string, data interface{}) error {
 	ch, err := rbt.channelForPublish()
 
@@ -161,19 +176,20 @@ func (rbt RabbitMQ) PublishWithCorrelationId(exchangeName, routingKey, correlati
 }
 
 func (rbt *RabbitMQ) addConnectionCloseListener() {
+
 	receiver := make(chan *amqp.Error)
 	rbt.connection.NotifyClose(receiver)
+
 	err := <-receiver
 
 	if err != nil {
 		for i := 0; i < rbt.config.Reconnect.MaxAttempt; i++ {
-			if err := rbt.reconnect(); err != nil {
-				rbt.Start()
+			if err := rbt.reconnect(); err == nil {
+				rbt.restart()
 				return
 			}
 
 			time.Sleep(rbt.config.Reconnect.Interval)
 		}
-
 	}
 }
